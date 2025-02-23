@@ -213,12 +213,14 @@ export default function LoginForm() {
       });
 
       if (response.error) {
+        
         setServerError(response.message);
       } else {
         // Redirect to the dashboard page
         router.push("/dashboard");
       }
     } catch (error) {
+      console.error(error)
       setServerError("An unexpected error occurred. Please try again.");
     } finally {
       setIsLoading(false); // Set loading to false when submission ends
@@ -287,7 +289,7 @@ export default function LoginForm() {
         </CardContent>
         <CardFooter className="flex-col gap-2">
           <div className="text-muted-foreground text-sm">
-            Don't have an account?{" "}
+            Do not have an account?{" "}
             <Link href="/register" className="underline">
               Register
             </Link>
